@@ -41,4 +41,30 @@ public class JobTest {
         Job testJob2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         assertFalse(testJob1.equals(testJob2));
     }
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        String spec = "each job listing starts and ends with a newline character";
+        Job testJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        System.out.println(testJob.toString());;
+        String testString = testJob.toString();
+        String firstChar = String.valueOf(testString.charAt(0));
+        int lastLength = testString.length() - 1;
+        String lastChar = String.valueOf(testString.charAt(lastLength));
+        assertEquals(firstChar,"\n");
+        assertEquals(lastChar,"\n");
+    }
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+        String spec = "value of fields is reported correctly";
+        Job testJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String actual = testJob.toString();
+        String expected = "\nID: " + testJob.getId() +
+                "\nName: " + testJob.getName() +
+                "\nEmployer: " + testJob.getEmployer() +
+                "\nLocation: " + testJob.getLocation() +
+                "\nPosition Type: " + testJob.getPositionType() +
+                "\nCore Competency: " + testJob.getCoreCompetency() +
+                "\n";
+        assertEquals(spec,expected,actual);
+    }
 }
