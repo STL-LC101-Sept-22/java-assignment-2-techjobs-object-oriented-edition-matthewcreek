@@ -35,7 +35,7 @@ public class JobTest {
         assertEquals(testJob.getName(),"Product tester");
     }
     @Test
-    public void testForEquality() {
+    public void testJobsForEquality() {
         String spec = "job entries with the same fields will still have unique IDs";
         Job testJob1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         Job testJob2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
