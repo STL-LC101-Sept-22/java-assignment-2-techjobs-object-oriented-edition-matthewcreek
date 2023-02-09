@@ -51,11 +51,11 @@ public class JobTest {
         System.out.println(testJob.toString());
         ;
         String testString = testJob.toString();
-        String firstChar = String.valueOf(testString.charAt(0));
+        char firstChar = testString.charAt(0);
         int lastLength = testString.length() - 1;
-        String lastChar = String.valueOf(testString.charAt(lastLength));
-        assertEquals(firstChar, "\n");
-        assertEquals(lastChar, "\n");
+        char lastChar = testString.charAt(lastLength);
+        assertEquals(firstChar, '\n');
+        assertEquals(lastChar, '\n');
     }
 
     @Test
